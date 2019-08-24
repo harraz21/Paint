@@ -1,0 +1,34 @@
+#canvasContainer{
+	
+	-fx-background-color:-fx-outer-border, -fx-inner-border,white;
+	-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.5), 10, 0, 0,0);
+}
+#mainLayout{
+	
+	//-fx-background-color:-fx-outer-border, -fx-inner-border,rgba(210,210,210,0.5);
+	//-fx-background-color:white;
+}
+#menuItem{
+	-fx-background-radius:3.5;
+	-fx-background-insets:0,1,2;
+	-fx-background-color:transparent;
+
+}
+#toggleButton{
+	-fx-background-radius:3.5;
+	-fx-background-insets:0,1,2;
+	-fx-background-color:transparent;
+
+}
+
+#toggleButton:hover{
+    -fx-background-color: -fx-shadow-highlight-color, -fx-outer-border, -fx-inner-border, -fx-body-color;
+
+}
+#toggleButton:selected{
+    -fx-background-color: -fx-shadow-highlight-color, -fx-outer-border, -fx-inner-border, -fx-body-color,rgba(239.0,239.0,239.0,1.0);
+
+}
+#colorPicker{
+ -fx-background-color:-fx-body-color,rgba(255.0,255.0,255.0,1.0);
+}

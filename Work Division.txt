@@ -1,0 +1,29 @@
+ALL:
++GUI DESIGN
++icons
++maintaining clean code
+
+Mohamed Harraz 4608:
++Save&Load 
++Undo&Redo
++Update Shapes Properties on Selection
++FileChooser
+DPs:Momento Strategy Command 
+
+Sherif Rafik 4635:
++Draw Model
++Coloring
++Resize
++Copy
++Plugins
+DPs:MVC Factory
+
+Omar Nasr 4730:
++Select
++Multi Select
++Move
++Delete
++Container Resizing
++HotKeys
+
+DPs:Singleton Command 

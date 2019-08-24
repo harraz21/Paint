@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ColorPicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="mainLayout" fx:id="_main_container" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" stylesheets="@../CSS/SceneStyling.css" xmlns="http://javafx.com/javafx/" xmlns:fx="http://javafx.com/fxml" fx:controller="_Controllers.Controller">
+   <children>
+      <MenuBar id="menuItem" layoutX="5.0" layoutY="1.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="1.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+                  <MenuItem fx:id="m_new" mnemonicParsing="false" onAction="#menuNewOnAction" text="New">
+                     <graphic>
+                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" smooth="false">
+                           <image>
+                              <Image url="@Icons/menu_Icons/file_plus.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </MenuItem>
+                  <MenuItem fx:id="m_resize" mnemonicParsing="false" onAction="#menuResizeOnAction" text="Resize">
+                     <graphic>
+                        <ImageView fitHeight="18.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@Icons/menu_Icons/resize.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </MenuItem>
+                  <MenuItem fx:id="m_open" mnemonicParsing="false" onAction="#openOnAction" text="Open">
+                     <graphic>
+                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@Icons/menu_Icons/load.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </MenuItem>
+              <MenuItem fx:id="m_save" mnemonicParsing="false" onAction="#saveOnAction" text="Save">
+                     <graphic>
+                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@Icons/menu_Icons/save.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </MenuItem>
+                  <MenuItem fx:id="m_save_as" mnemonicParsing="false" onAction="#saveAsOnAction" text="Save As">
+                     <graphic>
+                        <ImageView fitHeight="18.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@Icons/menu_Icons/Save-As.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </MenuItem>
+                  <MenuItem fx:id="m_plugin" mnemonicParsing="false" onAction="#menuPluginOnAction" text="Add Plugin">
+                     <graphic>
+                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" smooth="false">
+                           <image>
+                              <Image url="@Icons/menu_Icons/file_plus.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </MenuItem>
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <Separator layoutX="105.0" layoutY="26.0" prefWidth="200.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+      <AnchorPane layoutX="212.0" layoutY="29.0" prefHeight="46.0" prefWidth="1004.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="28.0">
+         <children>
+            <Separator layoutX="50.0" orientation="VERTICAL" prefHeight="65.0" prefWidth="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="60.0" AnchorPane.topAnchor="0.0" />
+            <ImageView blendMode="MULTIPLY" fitHeight="25.0" fitWidth="25.0" layoutX="18.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Icons/tools_Icons/select.png" />
+               </image>
+            </ImageView>
+            <ToggleButton id="toggleButton" fx:id="_select" alignment="BOTTOM_CENTER" blendMode="MULTIPLY" layoutX="60.0" mnemonicParsing="false" prefHeight="65.0" prefWidth="50.0" text="Select" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="5.0">
+               <toggleGroup>
+                  <ToggleGroup fx:id="SelectedTool" />
+               </toggleGroup>
+            </ToggleButton>
+            <ColorPicker id="colorPicker" fx:id="_primary_color_picker" layoutX="113.0" layoutY="10.0" onAction="#onColorValueChanged" prefHeight="25.0" prefWidth="50.0" promptText="Colors" scaleShape="false" />
+            <Label layoutX="70.0" layoutY="14.0" text="Colors:" />
+            <Separator layoutX="238.0" orientation="VERTICAL" prefHeight="65.0" prefWidth="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0" />
+            <ImageView blendMode="MULTIPLY" fitHeight="25.0" fitWidth="25.0" layoutX="256.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Icons/tools_Icons/copy.png" />
+               </image>
+            </ImageView>
+            <Button id="toggleButton" fx:id="_copy" alignment="BOTTOM_CENTER" blendMode="MULTIPLY" layoutX="243.0" layoutY="-1.0" mnemonicParsing="false" onAction="#copyOnAction" prefHeight="65.0" prefWidth="52.0" text="Copy" />
+            <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="412.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Icons/tools_Icons/Shapes/Triangle.png" />
+               </image>
+            </ImageView>
+            <ToggleButton id="toggleButton" fx:id="_triangle" alignment="BOTTOM_CENTER" blendMode="MULTIPLY" layoutX="407.0" layoutY="10.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="35.0" toggleGroup="$SelectedTool" />
+            <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="448.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Icons/tools_Icons/Shapes/Circle.png" />
+               </image>
+            </ImageView>
+            <ToggleButton id="toggleButton" fx:id="_circle" alignment="BOTTOM_CENTER" blendMode="MULTIPLY" layoutX="442.0" layoutY="10.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="35.0" toggleGroup="$SelectedTool" />
+            <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="482.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Icons/tools_Icons/Shapes/Rectangle.png" />
+               </image>
+            </ImageView>
+            <ToggleButton id="toggleButton" fx:id="_rectangle" alignment="BOTTOM_CENTER" blendMode="MULTIPLY" layoutX="477.0" layoutY="10.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="35.0" selected="true" toggleGroup="$SelectedTool" />
+            <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="521.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Icons/tools_Icons/Shapes/Line.png" />
+               </image>
+            </ImageView>
+            <ToggleButton id="toggleButton" fx:id="_line" alignment="BOTTOM_CENTER" blendMode="MULTIPLY" layoutX="513.0" layoutY="10.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="35.0" toggleGroup="$SelectedTool" />
+            <Label layoutX="458.0" layoutY="44.0" text="Shapes" />
+            <Separator layoutX="548.0" orientation="VERTICAL" prefHeight="65.0" prefWidth="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0" />
+            <Separator layoutX="397.0" orientation="VERTICAL" prefHeight="65.0" prefWidth="10.0" AnchorPane.bottomAnchor="1.0" AnchorPane.topAnchor="-1.0" />
+            <ImageView blendMode="MULTIPLY" fitHeight="20.0" fitWidth="20.0" layoutX="310.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Icons/tools_Icons/delete.png" />
+               </image>
+            </ImageView>
+            <Button id="toggleButton" fx:id="_delete" alignment="BOTTOM_CENTER" blendMode="MULTIPLY" layoutX="295.0" layoutY="-1.0" mnemonicParsing="false" onAction="#deleteOnAction" prefHeight="65.0" prefWidth="52.0" text="Delete" />
+            <Slider fx:id="_line_size" layoutX="113.0" layoutY="44.0" max="12.0" min="2.0" onMouseDragged="#linewidthSliderOnDrag" prefHeight="14.0" prefWidth="120.0" value="2.0" />
+            <Label layoutX="82.0" layoutY="41.0" text="Size:" />
+            <ColorPicker id="colorPicker" fx:id="_secondary_color_picker" layoutX="173.0" layoutY="11.0" onAction="#onColorValueChanged" prefHeight="25.0" prefWidth="50.0" promptText="Colors" scaleShape="false" />
+            <CheckBox fx:id="_fill_shape" layoutX="667.0" layoutY="8.0" mnemonicParsing="false" onAction="#fillOnAction" text="Fill Shapes" />
+            <ImageView blendMode="MULTIPLY" fitHeight="20.0" fitWidth="20.0" layoutX="569.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Icons/tools_Icons/undo.png" />
+               </image>
+            </ImageView>
+            <Button id="toggleButton" fx:id="_undo" alignment="BOTTOM_CENTER" blendMode="MULTIPLY" layoutX="553.0" mnemonicParsing="false" onAction="#undoOnAction" prefHeight="65.0" prefWidth="52.0" text="Undo" />
+            <ImageView blendMode="MULTIPLY" fitHeight="20.0" fitWidth="20.0" layoutX="621.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Icons/tools_Icons/redo.png" />
+               </image>
+            </ImageView>
+            <Button id="toggleButton" fx:id="_redo" alignment="BOTTOM_CENTER" blendMode="MULTIPLY" layoutX="605.0" mnemonicParsing="false" onAction="#redoOnAction" prefHeight="65.0" prefWidth="52.0" text="Redo" />
+            <ImageView blendMode="MULTIPLY" fitHeight="20.0" fitWidth="20.0" layoutX="360.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Icons/tools_Icons/cursor.png" />
+               </image>
+            </ImageView>
+            <ToggleButton id="toggleButton" fx:id="_cursor" alignment="BOTTOM_CENTER" blendMode="MULTIPLY" layoutX="345.0" layoutY="-1.0" mnemonicParsing="false" prefHeight="65.0" prefWidth="50.0" text="Cursor" toggleGroup="$SelectedTool">
+               <font>
+                  <Font size="11.0" />
+               </font>
+            </ToggleButton>
+            <Separator layoutX="655.0" layoutY="-1.0" orientation="VERTICAL" prefHeight="65.0" prefWidth="10.0" />
+            <CheckBox fx:id="_uniform_shape" layoutX="667.0" layoutY="35.0" mnemonicParsing="false" text="Uniform Shape" />
+            <Separator layoutX="806.0" layoutY="-1.0" orientation="VERTICAL" prefHeight="65.0" prefWidth="10.0" />
+            <ToggleButton id="toggleButton" fx:id="_plugin_shape" alignment="BOTTOM_CENTER" blendMode="MULTIPLY" disable="true" ellipsisString="." layoutX="827.0" layoutY="-1.0" mnemonicParsing="false" prefHeight="65.0" prefWidth="58.0" toggleGroup="$SelectedTool">
+               <font>
+                  <Font size="8.0" />
+               </font>
+            </ToggleButton>
+         </children>
+      </AnchorPane>
+      <Separator layoutY="94.0" prefWidth="200.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+      <AnchorPane id="canvasContainer" fx:id="_canvas_container" prefHeight="300.0" prefWidth="450.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="114.0">
+         <children>
+            <Canvas fx:id="_canvas" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <cursor>
+                  <Cursor fx:constant="CROSSHAIR" />
+               </cursor>
+            </Canvas>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
